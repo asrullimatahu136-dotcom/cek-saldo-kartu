@@ -103,6 +103,8 @@
 
           reader.onreading = async (event) => {
             const uid = event.serialNumber.toLowerCase();
+            
+            alert("UID dari HP: " + uid);
 
             const res = await fetch(`${scriptURL}?mode=saldo&id=${uid}`);
             const data = await res.json();
@@ -126,3 +128,4 @@
     </script>
   </body>
 </html>
+
