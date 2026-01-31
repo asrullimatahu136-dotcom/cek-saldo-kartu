@@ -102,10 +102,10 @@
             "Kartu terdeteksi, memproses...";
 
           reader.onreading = async (event) => {
-            const uid = event.serialNumber.toLowerCase();
+            const uid = event.serialNumber
+              .toLowerCase()
+              .replace(/:/g, "");
             
-            alert("UID dari HP: " + uid);
-
             const res = await fetch(`${scriptURL}?mode=saldo&id=${uid}`);
             const data = await res.json();
 
@@ -128,4 +128,5 @@
     </script>
   </body>
 </html>
+
 
